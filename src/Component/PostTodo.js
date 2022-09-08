@@ -11,14 +11,14 @@ const PostTodo = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (todoText.todoName !== "") {
+        if (todoText.todoName.trim() !== "") {
             postTodo(todoText)
             setTodoText({ todoName: "" })
         }
     }
     return (
-        <form className="row g-2" onSubmit={handleSubmit}>
-            <div className="col-5">
+        <form className="row align-items-center flex-nowrap" onSubmit={handleSubmit}>
+            <div className="col-10">
                 <label htmlFor="todo-text" className="visually-hidden"></label>
                 <input type="text"
                     name='todoName'
@@ -28,8 +28,8 @@ const PostTodo = () => {
                     id="todo-text"
                     placeholder="Add New Todo" />
             </div>
-            <div className="col-auto">
-                <button type="submit" className="btn btn-primary mb-3">Add</button>
+            <div className="col-auto mx-0 px-0">
+                <button type="submit" className="btn btn-primary">Add</button>
             </div>
         </form>
     )
