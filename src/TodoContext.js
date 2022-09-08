@@ -24,6 +24,11 @@ const TodoContextProvider = (props) => {
     //     setSelectedTerm(pTerm)
     // }
 
+    const postTodo = async (pTodo) => {
+        await todoService.addTodo(pTodo);
+        await getAllTodos();
+    };
+
     const getAllTodos = async () => {
         const response = await todoService.getTodoList();
         const data = await response;
@@ -47,7 +52,7 @@ const TodoContextProvider = (props) => {
     }, []);
 
     return (
-        <TodoContext.Provider value={{ getTodoList }}>
+        <TodoContext.Provider value={{ getTodoList, postTodo }}>
             {props.children}
         </TodoContext.Provider>
     );

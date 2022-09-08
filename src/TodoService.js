@@ -11,14 +11,14 @@ export async function getTodoList() {
     }
 };
 
-export async function addSoftSkill(pAddSkill) {
+export async function addTodo(pAddTodo) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(pAddSkill)
+        body: JSON.stringify(pAddTodo)
     };
     try {
-        const response = await fetch(`http://localhost:5000/api/v1/participant/addsoftskill`, requestOptions);
+        const response = await fetch(`http://localhost:8080/todo`, requestOptions);
         const data = await response.json();
         console.log("frontend service ", data)
         return data;
