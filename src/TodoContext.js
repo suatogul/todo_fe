@@ -34,6 +34,10 @@ const TodoContextProvider = (props) => {
         const data = await response;
         setGetTodoList(data);
     };
+    const deleteTodo = async (pId) => {
+        await todoService.deleteTodo(pId);
+        await getAllTodos();
+    };
 
     // const addInvitation = async (pInvitation) => {
     //     try {
@@ -52,7 +56,7 @@ const TodoContextProvider = (props) => {
     }, []);
 
     return (
-        <TodoContext.Provider value={{ getTodoList, postTodo }}>
+        <TodoContext.Provider value={{ getTodoList, postTodo, deleteTodo }}>
             {props.children}
         </TodoContext.Provider>
     );
