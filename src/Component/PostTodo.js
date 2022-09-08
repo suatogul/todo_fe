@@ -16,7 +16,6 @@ const PostTodo = () => {
             setTodoText({ todoName: "" })
         }
     }
-    console.log("todo", todoText)
     return (
         <form className="row g-2" onSubmit={handleSubmit}>
             <div className="col-5">
